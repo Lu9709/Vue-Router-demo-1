@@ -141,7 +141,7 @@ var routeTable = {
 };
 
 function router(container) {
-  var number = window.location.pathname;
+  var number = window.localStorage.getItem("router");
   console.log(number);
 
   if (number === '/') {
@@ -171,7 +171,7 @@ try {
     a.addEventListener("click", function (e) {
       e.preventDefault();
       var href = a.getAttribute("href");
-      window.history.pushState(null, "page ".concat(href), href);
+      window.localStorage.setItem("router", href);
       onStatechange(href);
     });
   };
@@ -219,7 +219,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54258" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58045" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

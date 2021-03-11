@@ -15,7 +15,7 @@ const routeTable = {
 }
 
 function router(container) {
-    let number = window.location.pathname
+    let number = window.localStorage.getItem("router")
     console.log(number);
     if (number === '/') {
         number = '/1'
@@ -37,7 +37,7 @@ for (let a of Alla) {
     a.addEventListener("click", e => {
         e.preventDefault()
         const href = a.getAttribute("href")
-        window.history.pushState(null, `page ${href}`, href)
+        window.localStorage.setItem("router",href)
         onStatechange(href)
     })
 }
